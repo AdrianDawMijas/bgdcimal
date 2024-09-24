@@ -1,6 +1,7 @@
 package org.iesvdm.bigd;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class BasicArithmetic {
     public static void main(String[] args) {
@@ -10,7 +11,7 @@ public class BasicArithmetic {
         BigDecimal sum = num1.add(num2);
         BigDecimal difference = num1.subtract(num2);
         BigDecimal product = num1.multiply(num2);
-        BigDecimal quotient = num1.divide(num2, 2, BigDecimal.ROUND_HALF_UP); // Rounding required
+        BigDecimal quotient = num1.divide(num2, 2, RoundingMode.HALF_UP); // Rounding required
 
         System.out.println("Sum: " + sum);              // Output: 14.7
         System.out.println("Difference: " + difference);// Output: 6.3
