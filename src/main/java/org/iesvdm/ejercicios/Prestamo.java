@@ -42,8 +42,10 @@ public class Prestamo {
     }
 
     public BigDecimal pagoMensual() {
-        BigDecimal numerador = principal.multiply(interest);
-        BigDecimal denominador = BigDecimal.ONE.subtract(BigDecimal.ONE.add(interest)).pow(-años);
+
+        BigDecimal exponenente = BigDecimal.ONE.add(interest).pow(años);
+        BigDecimal numerador = principal.multiply(interest).add(exponenente);
+        BigDecimal denominador = exponenente.subtract(BigDecimal.ONE);
         return numerador.divide(denominador, 10, BigDecimal.ROUND_HALF_EVEN);
     }
 

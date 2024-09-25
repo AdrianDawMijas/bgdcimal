@@ -1,25 +1,22 @@
 package org.iesvdm.ejercicios;
 
 import java.math.BigInteger;
-import java.util.Scanner;
 
 public class Factorial {
+    public static BigInteger calcularFactorial(BigInteger numero) {
+        // Caso base: si el número es 0 o 1, el factorial es 1
+        if (numero.equals(BigInteger.ONE) || numero.equals(BigInteger.ZERO)) {
+            return BigInteger.ONE;
+        }
+        // Llamada recursiva: n * factorial(n - 1)
+        else {
+            return numero.multiply(calcularFactorial(numero.subtract(BigInteger.ONE)));
+        }
+    }
+
     public static void main(String[] args) {
-        System.out.println("Dame un numero natural");
-        Scanner sc = new Scanner(System.in);
-        String numero = sc.next();
-        BigInteger factorial = new BigInteger(numero);
-        System.out.println(calcularFactorial(factorial));
-        }
-
-
-
-    public static BigInteger calcularFactorial(BigInteger numero){
-        if(numero.subtract(BigInteger.ONE).compareTo(BigInteger.ONE) == 0){
-            return numero;
-        }
-        else{
-            return calcularFactorial(numero.multiply(numero.subtract(BigInteger.ONE)));
-        }
+        BigInteger numero = new BigInteger("5"); // Cambia este número para probar otros factoriales
+        BigInteger resultado = calcularFactorial(numero);
+        System.out.println("El factorial de " + numero + " es: " + resultado);
     }
 }
