@@ -1,6 +1,6 @@
 from decimal import Decimal
 import math
-
+#U+1F40D
 Radio = Decimal('6371')
 latitud1 = math.radians(Decimal('8.53687'))
 latitud2 = math.radians(Decimal('18.53687'))
